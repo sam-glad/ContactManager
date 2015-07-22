@@ -1,3 +1,4 @@
 /ContactManager/bin/*
 /ContactManager/obj/*
+/ContactManager/App_Data/*
 /.vs/*
