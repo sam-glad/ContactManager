@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ContactManager.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using ContactManager.Models;
+using System;
+using System.Configuration;
 
 namespace ContactManager
 {
@@ -58,11 +59,11 @@ namespace ContactManager
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = ConfigurationManager.AppSettings["GooglePlusApiClientId"],
+                ClientSecret = ConfigurationManager.AppSettings["GooglePlusApiClientSecret"]
+            });
         }
     }
 }
